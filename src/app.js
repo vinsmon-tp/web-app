@@ -5,6 +5,7 @@ const forecast = require(path.join(__dirname, '../utils/weather-api-call'))
 const coordinates = require(path.join(__dirname, '../utils/geo-coordinate-api-call'))
 
 const app = express()
+const port = process.env.PORT || 3000
 
 // Path configuration for express server
 const viewsPath = path.join(__dirname, '../templates/views')
@@ -17,7 +18,7 @@ app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
 app.use(express.static(publicDirectoryPath))
 
-app.listen(3000, ()=>{
+app.listen(port, ()=>{
     console.log('Server is running...')
 })
 
